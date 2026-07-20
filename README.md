@@ -1,1 +1,1 @@
-# Splunk-Capstone
+# Splunk Capstone

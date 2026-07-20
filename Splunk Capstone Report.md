@@ -43,6 +43,9 @@ Brute force attack against host FRONTDESK-PC1.KCD.local. Usernames attempted: `a
 index="splunk101" EventCode IN (4625) | table _time, EventCode, user, src_ip, dest_nt_host | sort +_time
 ```
 
+<img width="975" height="416" alt="image" src="https://github.com/user-attachments/assets/585e9ee7-c08e-468b-b2e8-e21c3e10d87e" />
+
+
 | _time | EventCode | user | src_ip | dest_nt_host |
 |---|---|---|---|---|
 | 2025-10-15 12:52:08 | 4625 | ryan.adams | 172.16.0.184 | FRONTDESK-PC1.KCD.local |
@@ -61,6 +64,9 @@ Attacker (`172.16.0.184`) made several attempts to RDP into FRONTDESK-PC1.KCD.lo
 index="splunk101" 172.16.0.184 | where NOT EventCode IN (4624,4625) | table _time, EventID, src_ip, dest, DestinationPort, EventDescription host | sort +_time
 ```
 
+<img width="975" height="459" alt="image" src="https://github.com/user-attachments/assets/e031c887-d1e0-48f9-8941-15e46d54a5c8" />
+
+
 | _time | EventID | src_ip | dest | DestinationPort | EventDescription | host |
 |---|---|---|---|---|---|---|
 | 2025-10-15 12:52:03 – 12:52:09 | 3 | 172.16.0.184 | 172.16.0.110 | 3389 | Network connection | FRONTDESK-PC1 |
@@ -74,6 +80,9 @@ Attacker successfully logged in 4 times as `Ryan.Adams` on FRONTDESK-PC1.KCD.loc
 ```spl
 index="splunk101" EventCode IN (4624) | table _time, EventCode, user, src_ip, dest_nt_host | sort +_time
 ```
+
+<img width="975" height="300" alt="image" src="https://github.com/user-attachments/assets/f9aeee4d-85e0-4764-b86a-ba423358e260" />
+
 
 | _time | EventCode | user | src_ip | dest_nt_host |
 |---|---|---|---|---|
@@ -96,6 +105,9 @@ index="splunk101" EventCode IN (4624) | table _time, EventCode, user, src_ip, de
 index="splunk101" user="Ryan.Adams" EventCode=4648
 ```
 
+<img width="975" height="269" alt="image" src="https://github.com/user-attachments/assets/296124d4-3f88-41f7-a94f-1fa1287fb8a8" />
+
+
 Two `4648` events recorded at `12:55:20.000 PM`, both flagged: *"A logon was attempted using explicit credentials."*
 - `dest = localhost`, `dest_nt_domain = KCD`, `dest_nt_host = localhost`, `dvc_nt_host = FRONTDESK-PC1`, `host = FRONTDESK-PC1`, `source = security.csv`, `sourcetype = WinEventSecurity`
 
@@ -105,6 +117,8 @@ File create event: `C:\Users\Ryan.Adams\Music\python.exe`. Parent image: Google 
 
 - Network connection made to malicious IP **157.245.46.190** from source IP `172.16.0.110`.
 - DNS query made to `172.16.0.7` from source IP `172.16.0.110`.
+
+<img width="826" height="665" alt="image" src="https://github.com/user-attachments/assets/1ebb510d-7ae2-4a53-93ba-4503d96e6409" />
 
 **IP Reputation — 157.245.46.190**
 | Field | Value |
@@ -136,6 +150,9 @@ File create event: `C:\Users\Ryan.Adams\Music\python.exe`. Parent image: Google 
 ```spl
 index="splunk101" C:\\Users\\Ryan.Adams\\Music | table _time, EventDescription, parent_process_name, Image, file_path, src_ip, dest_ip, CommandLine | sort +_time
 ```
+<img width="975" height="225" alt="image" src="https://github.com/user-attachments/assets/e77b5811-18b8-45a4-afdc-afa62b27b26b" />
+<img width="975" height="34" alt="image" src="https://github.com/user-attachments/assets/6c28abb8-df2c-4297-ae28-349332dcc96c" />
+<img width="975" height="54" alt="image" src="https://github.com/user-attachments/assets/e43669e0-3e20-4ccb-8590-71f3804f18f4" />
 
 | _time | EventDescription | parent_process_name | Image | dest_ip |
 |---|---|---|---|---|
@@ -155,6 +172,8 @@ index="splunk101" C:\\Users\\Ryan.Adams\\Music | table _time, EventDescription, 
 **10/15/25 1:09:39 PM**
 Source IP `172.16.0.110` attempted a connection to `20.189.173.7`. Connection unsuccessful due to a certificate issue.
 
+<img width="884" height="703" alt="image" src="https://github.com/user-attachments/assets/7e337876-4fbb-4d57-8cd8-7cb3c16b6a4d" />
+
 **IP Reputation — 20.189.173.7**
 | Field | Value |
 |---|---|
@@ -170,6 +189,7 @@ Source IP `172.16.0.110` attempted a connection to `20.189.173.7`. Connection un
 ```spl
 index="splunk101" dest="20.189.173.7" | table _time, host, id_orig_h, dest, msg | sort +_time
 ```
+<img width="975" height="47" alt="image" src="https://github.com/user-attachments/assets/46a53af3-4498-48bc-ac80-36411c57b4cf" />
 
 | _time | host | id_orig_h | dest | msg |
 |---|---|---|---|---|

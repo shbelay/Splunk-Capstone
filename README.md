@@ -38,6 +38,17 @@ Working from a real-world style scenario, I analyzed authentication events, proc
 
 ---
 
+# Tools Used
+
+- Splunk Enterprise
+- Windows Event Logs
+- Sysmon
+- SPL (Search Processing Language)
+- IP Reputation Analysis
+- MITRE ATT&CK Framework
+
+---
+
 ## Key Technical Skills
 - Splunk SPL
 - Threat Hunting

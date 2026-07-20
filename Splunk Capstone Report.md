@@ -1,5 +1,7 @@
 # Splunk 101 Capstone — Incident Investigation Report
 
+Report PDF: https://shbelay.com/files/SOC_Reports/Splunk101Capstone.pdf
+
 ## Findings
 
 | Field | Value |
